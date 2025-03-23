@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --bgColor: #333;
+    --textPrimary: #fff;
+    --textSecondary: #666;
+    --primaryColor: #fd4;
+}
+body {
+    font-family: "Roboto", sans-serif;
+    background-color: var(--bgColor);
+    color: var(--textPrimary);
+    font-size: 1.4rem;
+}
+
+main {
+    width: 600px;
+    margin: 50px auto;
+}
+.main-title-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.main-title {
+    color: var(--primaryColor);
+}
+.zebra-icon {
+    width: 50px;
+}
+
+
+#header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px 6px 30px;
+}
+
+#buttons {
+    text-align: right;
+}
+
+#info {
+    color: var(--primaryColor);
+}
+
+#buttons button {
+    background-color: rgba(255, 255, 255, .2);
+    border: none;
+    color: rgba(255, 255, 255, .5);
+    padding: 5px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+div#words{
+    filter: blur(5px);
+    color: var(--textSecondary);
+}
+
+div#game {
+    line-height: 35px;
+    height: 105px;
+    overflow: hidden;
+    position: relative;
+}
+
+div#game:focus {
+    outline: none;
+}
+
+#game:focus #words{
+    filter: blur(0);
+}
+
+#game:focus #focus-error {
+    display: none;
+}
+
+#focus-error {
+    position: absolute;
+    inset: 0;
+    text-align: center;
+    margin-top: 35px;
+}
+
+
+div.word {
+    display: inline-block;
+    font-family: 'Roboto Mono' monospace;
+    margin: 0 5px;
+}
+
+.letter.correct {
+    color: #fff;
+}
+
+.letter.incorrect {
+    color: #f55;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#cursor {
+    display: none;
+    width: 2px;
+    height: 1.6rem;
+    background: var(--primaryColor);
+    position: fixed;
+    top: 248px;
+    left: 470px;
+    animation-name: blink;
+    animation-duration: 0.8s;
+    animation-delay: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#game:focus #cursor {
+    display: inline-block;
+}
